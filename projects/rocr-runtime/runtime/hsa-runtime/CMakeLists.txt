@@ -40,7 +40,7 @@
 ##
 ################################################################################
 
-cmake_minimum_required ( VERSION 3.7 )
+cmake_minimum_required ( VERSION 3.10 )
 
 ## Clear target dependency data.
 ## Needed to allow UI transitions between static and dynamic builds.
@@ -105,7 +105,7 @@ find_path(AMDCUID_INCLUDE_DIR
   PATHS ${AMDCUID_ROOT}/include
   NO_DEFAULT_PATH
 )
-if (AMDCUID_LIB AND AMDCUID_INCLUDE_DIR) 
+if (AMDCUID_LIB AND AMDCUID_INCLUDE_DIR)
   message(STATUS "Found AMDCUID lib: ${AMDCUID_LIB}")
   message(STATUS "Found AMDCUID header: ${AMDCUID_INCLUDE_DIR}")
   set(AMDCUID_FOUND TRUE)

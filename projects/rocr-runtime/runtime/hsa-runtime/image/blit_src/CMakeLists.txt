@@ -40,7 +40,7 @@
 ##
 ################################################################################
 
-cmake_minimum_required ( VERSION 3.7 )
+cmake_minimum_required ( VERSION 3.10 )
 
 # Import target 'clang'
 find_package(Clang REQUIRED HINTS ${CMAKE_PREFIX_PATH}/llvm PATHS /opt/rocm/llvm )

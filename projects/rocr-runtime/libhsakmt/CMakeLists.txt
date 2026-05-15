@@ -23,7 +23,7 @@
 ##
 ################################################################################
 
-cmake_minimum_required ( VERSION 3.6.3 )
+cmake_minimum_required ( VERSION 3.10 )
 
 if (WIN_SDK)
   include(${CMAKE_CURRENT_SOURCE_DIR}/CMakeLists_wsl.txt)
@@ -137,7 +137,7 @@ else()
     ## Source files
     set ( HSAKMT_SRC "src/dxg/ais.cpp"
                      "src/dxg/debug.cpp"
-                     "src/dxg/dxcore_loader.cpp" 
+                     "src/dxg/dxcore_loader.cpp"
                      "src/dxg/events.cpp"
                      "src/dxg/memory.cpp"
                      "src/dxg/libdrm.cpp"
@@ -193,7 +193,7 @@ else()
   if (UNIX)
     set(EXTRA_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/src)
   else()
-    set(EXTRA_INCLUDE_DIRS 
+    set(EXTRA_INCLUDE_DIRS
       ${DK_HEADER}/ms_sdk/include/shared
       ${DK_HEADER}/inc/shared
       ${DK_HEADER}/inc/asic_reg
@@ -301,10 +301,10 @@ else()
         set(WKMI_LIB_PATH ${CMAKE_CURRENT_SOURCE_DIR}/src/dxg/wkmi/win/rel/wkmi.lib)
       endif()
       target_include_directories(${HSAKMT_TARGET} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src/dxg/wkmi)
-      
+
       # Link wkmi.lib and ensure it's propagated to downstream targets (hsa-runtime64)
       target_link_libraries(${HSAKMT_TARGET} PUBLIC ${WKMI_LIB_PATH})
-      
+
       # Export wkmi.lib path for downstream static linking
       set_property(TARGET ${HSAKMT_TARGET} APPEND PROPERTY INTERFACE_LINK_LIBRARIES ${WKMI_LIB_PATH})
     endif()
